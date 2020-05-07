@@ -33,6 +33,7 @@ complex<double> solve(const ComplexVariable& x)
     }
 }
 
+
 	//RealPart//
   RealVariable operator==(const RealVariable &n1, const RealVariable &n2)
 	{
@@ -81,7 +82,7 @@ complex<double> solve(const ComplexVariable& x)
 
 	ComplexVariable operator+(const ComplexVariable& n1, const ComplexVariable& n2)
 	{
-		return ComplexVariable(n1.a+n2.a , n1.b+n2.b , n1.c-n2.c);
+		return ComplexVariable(n1.a+n2.a , n1.b+n2.b , n1.c+n2.c);
 	}
 
 	ComplexVariable operator-(const ComplexVariable& n1, const ComplexVariable& n2)
@@ -92,9 +93,9 @@ complex<double> solve(const ComplexVariable& x)
 	ComplexVariable operator*(const ComplexVariable& n1, const ComplexVariable& n2)
 	{
 
-		return ComplexVariable(n1.a*n2.a + n1.a*n2.b + n1.a*n2.c
-											 		,n1.b*n2.a + n1.b*n2.b + n1.b*n2.c
-											 		,n1.c*n2.a + n1.c*n2.b + n1.c*n2.c );
+		return ComplexVariable(n1.a * n2.c + n1.b * n2.b + n1.c * n2.a
+                          ,n1.b * n2.c + n1.c * n2.b
+                          ,n1.c * n2.c);
 	}
 
 	ComplexVariable operator/(const ComplexVariable& n1, double n2)
